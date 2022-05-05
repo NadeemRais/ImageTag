@@ -33,6 +33,8 @@ pipeline{
 		      def first = versions[0]
 		      first = first.toInteger() + 1;
 		      def major = "$first" + '.' + 0 +'.' + 0
+		      echo "$major"
+		      
                      }
                 }    
   
