@@ -20,9 +20,9 @@ pipeline{
                         sh "git config user.email nadeemmalik9800@gmail.com"
                         sh "git config user.name NadeemRais"
                        	echo "${version}"
-			echo "${flage}"+1
+			echo "${flage}"
 			def one = 1
-			def sum = "${flage}" + "${one}"
+			sum=`expr $flage + $one`
 			echo "${sum}"
                         sh "sed -i 's/${version}/${sum}/g' patch"
                         echo "${version}"
