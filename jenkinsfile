@@ -16,12 +16,15 @@ pipeline{
 		      def versions = version.split('\\.')
 		      def last = versions[2]
 		      last = last.toInteger() + 1;
-		      echo "$last"
-	
 		      def patch = versions[0] + '.' + versions[1]+'.'+"$last"
 		      echo "$patch"
 		      
                      }else if("${ImageTag}"=="Minor"){
+		      def versions = version.split('\\.')
+		      def last = versions[1]
+		      mid = mid.toInteger() + 1;
+		      def minor = versions[0] + '.' + $"mid"+'.'+0"
+		      echo "$minor"
 
                       echo "This is minor version"
                      }else{
