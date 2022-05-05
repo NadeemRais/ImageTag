@@ -15,7 +15,7 @@ pipeline{
                       echo "This is patch version"
 		      def versions = version.split('\\.')
 		      def last = versions[2]
-		      def sum last+1
+		      def sum "$last"+1
 		      echo "$sum"
 	
 		      def patch = versions[0] + '.' + versions[1]+'.'+versions[2]+1
