@@ -8,7 +8,7 @@ pipeline{
         stage('Build'){
             steps{
               script{
-       def version = readFile('patch')
+       def version = readFile('VERSION')
                      echo "${version}"
 
                      if("${version}"=="Patch"){
