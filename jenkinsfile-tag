@@ -19,7 +19,7 @@ pipeline{
                         sh "git config user.name NadeemRais"
                         sh "cat patch"
 			flage=flage+1
-                        sh "sed -i 's/${flage}/${flage}/g' patch"
+                        sh "sed -i 's/1/${flage}/g' patch"
                         sh "cat patch"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
