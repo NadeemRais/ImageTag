@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'Patch' )])])
+properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'version' )])])
 pipeline{
   agent any
    environment {
@@ -8,13 +8,24 @@ pipeline{
         stage('Build'){
             steps{
               script{
-		   def version = readFile('patch')
+       def version = readFile('patch')
                      echo "${version}"
-                     sh "docker build . -t nadeem90/test-image:${version}"
+
+                     if("${version}"=="Patch"){
+                      echo "This is patch version"
+                     }else if("${version}"=="Minor"){
+
+                      echo "This is minor version"
+                     }else{
+
+                      echo "This is major version"
+                     }
                 }    
   
            }
         }
+     }
+  } 
     
    //stage('Trigger ManifestUpdate') {
 		//steps{
