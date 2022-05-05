@@ -28,8 +28,11 @@ pipeline{
 
                       echo "This is minor version"
                      }else{
-
                       echo "This is major version"
+		      def versions = version.split('\\.')
+		      def first = versions[0]
+		      first = first.toInteger() + 1;
+		      def major = "$first" + '.' + 0 +'.' + 0
                      }
                 }    
   
