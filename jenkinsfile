@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'version' )])])
+properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'ImageTag' )])])
 pipeline{
   agent any
    environment {
@@ -11,9 +11,9 @@ pipeline{
        def version = readFile('VERSION')
                      echo "${version}"
 
-                     if("${version}"=="Patch"){
+                     if("${ImageTag}"=="Patch"){
                       echo "This is patch version"
-                     }else if("${version}"=="Minor"){
+                     }else if("${ImageTag}"=="Minor"){
 
                       echo "This is minor version"
                      }else{
