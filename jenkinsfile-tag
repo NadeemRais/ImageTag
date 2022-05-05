@@ -21,8 +21,10 @@ pipeline{
                         sh "git config user.name NadeemRais"
                        	echo "${version}"
 			echo "${flage}"+1
-			
-                        sh "sed -i 's/'${version}'/'${flage}'/g' patch"
+			def one = 1
+			def sum = "${flage}" + "${one}"
+			echo "${sum}"
+                        sh "sed -i 's/${version}/${sum}/g' patch"
                         echo "${version}"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
