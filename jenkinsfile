@@ -23,7 +23,7 @@ pipeline{
 		      def versions = version.split('\\.')
 		      def last = versions[1]
 		      mid = mid.toInteger() + 1;
-		      def minor = versions[0] + '.' + "$mid"+'.'+0"
+		      def minor = versions[0] + '.' + "$mid"+'.'+0
 		      echo "$minor"
 
                       echo "This is minor version"
