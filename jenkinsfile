@@ -14,7 +14,7 @@ pipeline{
                     echo "${flage}"
                     def version = "1.0.${flage}"
                      echo "${version}"
-                     sh "docker build -t nadeem90/test-image:${env.version}"
+                     sh "docker build . -t nadeem90/test-image:${version}"
 
                      flage=flage+1      
                      
