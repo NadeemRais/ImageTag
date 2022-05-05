@@ -1,39 +1,41 @@
+properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'Patch' )])])
 pipeline{
-
   agent any
-
-  environment {
+   environment {
     DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
+  stages{
+        stage('Patch'){
+            steps{
+              script{
+                     if("${Patch}"=="Patch")
+                     {
+		   def flage = readFile('patch')
+                    echo "${flage}"
+                    def version = "1.0.${flage}"
+                     echo "${version}"
+                     
 
-  stages {
-
-    stage('Build') {
-            steps {
-                script {
-                    def version = readFile('VERSION')
-                    def versions = version.split('\\.')
-                    def major = versions[0]
-                    def minor = versions[0] + '.' + versions[1]
-                    def patch = version.trim()
-
-                    docker.withRegistry('', 'dockerhub') {
-                        def image = docker.build('nadeem90/blog-docker-versioning:latest')
-                        image.push()
-                        image.push(major)
-                        image.push(minor)
-                        image.push(patch)
-                    }
-                }
-            }
+                     flage=flage+1      
+                     
+                    echo "${flage}"
+                    
+                     }else{
+                      echo "version is not patch"
+                     }  
+                }    
+  
+           }
         }
-
-      stage('Trigger ManifestUpdate') {
+    
+   stage('Trigger ManifestUpdate') {
 		steps{
                 echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: versions[0] )]
+                build job: 'updatepatch-file', parameters: [string(name: 'DOCKERTAG', value: env.flage)]
 			}
         }
     
-  }
-} 
+    
+    
+     }  
+}
