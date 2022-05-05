@@ -21,7 +21,6 @@ pipeline{
                         sh "git config user.name NadeemRais"
                        	echo "${version}"
 			echo "${flage}"
-			echo "${sum}"
                         sh "sed -i 's/1/${version}/g' patch"
                         echo "${version}"
                         sh "git add ."
