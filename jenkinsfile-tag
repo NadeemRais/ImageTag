@@ -20,6 +20,7 @@ pipeline{
                         sh "git config user.email nadeemmalik9800@gmail.com"
                         sh "git config user.name NadeemRais"
                        	echo "${version}"
+			echo "${flage}"
 			flage=flage+1
 			echo "${flage}"
                         sh "sed -i 's/'${version}'/'${flage}'/g' patch"
