@@ -14,7 +14,7 @@ pipeline{
                      if("${ImageTag}"=="Patch"){
                       echo "This is patch version"
 		      def versions = version.split('\\.')
-		      def patch = versions[0] + '.' + versions[1]+'.'+(int(versions[2])+int(1))
+		      def patch = versions[0] + '.' + versions[1]+'.'+(versions[2])+1)
 		      echo "$patch"
 		      
                      }else if("${ImageTag}"=="Minor"){
