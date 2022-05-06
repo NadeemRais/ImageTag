@@ -5,20 +5,13 @@ pipeline{
     DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
   stages{
-       script{
-       echo "hello"
-       }
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                   echo "hello"
+                    }
+                }
      }
   } 
     
-   //stage('Trigger ManifestUpdate') {
-		//steps{
-                //echo "triggering updatemanifestjob"
-                //build job: 'updatepatch-file', parameters: [string(name: 'DOCKERTAG', value: env.flage)]
-			//}
-        //}
-    
-    
-    
-     //}  
-//}
+  
