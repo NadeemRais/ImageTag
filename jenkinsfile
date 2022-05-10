@@ -6,9 +6,12 @@ pipeline{
   }
   stages{
         stage('Run Tests') {
+          steps{
+            script{
                    echo "hello"
                     }
                 }
-    
+           }     
+    }
 }    
   
