@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'ImageTag')]), string(name: "application", defaultValue: "frontend", trim: false, description: "DESCRIPTION")])
+properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'ImageTag'), string(name: "application", defaultValue: "frontend", trim: false, description: "DESCRIPTION")])])
 pipeline{
   agent any
    environment {
