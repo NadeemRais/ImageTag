@@ -18,7 +18,7 @@ pipeline{
 		sh "cat VERSION | grep frontend | grep -Eo '[0-9]+(.[0-9]+)*' >> final_version"		
 		
 		version = readFile('final_version').trim()	
-		app_ver = readFile('file').trim()				
+		//app_ver = readFile('file').trim()				
                 echo "${version}"
 		   
 		   if("${ImageTag}"=="Patch"){
