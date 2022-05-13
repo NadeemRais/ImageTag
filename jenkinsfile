@@ -14,7 +14,7 @@ pipeline{
 		sh "curl -X GET -u '${NEXUS_USERNAME}':'${NEXUS_PASSWORD}' http://192.168.3.37:8081/repository/my-repo/VERSION -O"
 		//sh "grep '${applicaton}' VERSION >> file && grep -Eo '[0-9]+(.[0-9]+)*' file >> final_version"
 		
-		version = sh returnStdout: true, script: "cat VERSION | grep '${application}' | grep -Eo '[0-9]+(.[0-9]+)*'".trim()		
+		version = sh returnStdout: true, script: "cat VERSION | grep '${application}' | grep -Eo '[0-9]+(.[0-9]+)*'"		
 		
 		echo "$version"
 		
@@ -26,7 +26,7 @@ pipeline{
 		      def versions = version.split('\\.')
 		      def last = versions[2]
 		      last = last.toInteger() + 1;
-		      new_version = versions[0] + '.' + versions[1]+'.'+"$last".trim()
+		      new_version = versions[0] + '.' + versions[1]+'.'+"$last"
 		     
 		      
 		      }else if("${ImageTag}"=="Minor"){
