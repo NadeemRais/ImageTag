@@ -87,7 +87,15 @@ pipeline{
 	
 	
 	
-// Function for Image tag	
+	
+     }
+  } 
+  
+  
+  
+  
+  
+  // Function for Image tag	
 	
 	
 	def imageVersion(ImageTag) {
@@ -126,6 +134,6 @@ pipeline{
 		]);
 		
 }
-	
-     }
-  } 
+  
+  
+  
