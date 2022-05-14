@@ -1,5 +1,5 @@
 @Library('ImageTag-Liabrary') _
-properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'ImageTag' )])])
+properties([parameters([choice(choices: ['Patch','Minor','Major'], description: 'Third stage meassage', name: 'ImageVersion' )])])
 pipeline{
   agent any
    environment {
@@ -40,8 +40,8 @@ pipeline{
 		      //new_version = "$first" + '.' + 0 +'.' + 0
 		      //echo "$new_version"
 		    		
-			  echo "${ImageTag}"	
-		          ImageTag("${ImageTag}")
+			  echo "${ImageVersion}"	
+		          ImageTag("${ImageVersion}")
 		      
                      //}
                 }    
