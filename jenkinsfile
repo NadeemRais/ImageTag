@@ -98,7 +98,7 @@ pipeline{
   // Function for Image tag	
 	
 	
-	def imageVersion('$ImageTag') {
+	def imageVersion('${ImageTag}') {
     		step([
 		script{
 		echo "$ImageTag"
