@@ -41,7 +41,7 @@ pipeline{
 		      //echo "$new_version"
 		    		
 			  echo "${ImageTag}"	
-		          ImageTag("${ImagTag}")
+		          ImageTag("${ImageTag}")
 		      
                      //}
                 }    
