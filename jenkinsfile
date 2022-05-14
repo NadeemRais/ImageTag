@@ -121,9 +121,10 @@ pipeline{
 		      new_version = "$first" + '.' + 0 +'.' + 0
 		      echo "$new_version"
 		    
-		    }      
-		]);	  
-    }
+		    }     
+		   } 
+		]);
+		
 }
 	
      }
