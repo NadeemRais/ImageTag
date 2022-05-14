@@ -41,7 +41,7 @@ pipeline{
 		      //echo "$new_version"
 		    		
 			  echo "${ImageVersion}"	
-		          (version, new_version) = ImageTag("${ImageVersion}")
+		          (version, new_version) = ImageTag.imageVersionTag("${ImageVersion}")
 			  
 			  echo "${version}"
 			  echo "${new_version}"
