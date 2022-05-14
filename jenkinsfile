@@ -79,6 +79,9 @@ pipeline{
          stage('Update Nexus') {
 	   	steps{
             	     script {	
+		     
+		     	echo "${version}"
+		     
 		     	def app_ver = "${application}"+'='+"${version}".trim()
 			def new_app_ver = "${application}"+'='+"${new_version}".trim()
             		sh "sed -i 's/${app_ver}/${new_app_ver}/g' VERSION" 
