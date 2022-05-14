@@ -18,30 +18,30 @@ pipeline{
         }
 	
 		
-	//stage('Build') {
+	stage('Build') {
 
-			//steps {
-				//script{
+			steps {
+				script{
 					
-					//sh "docker build . -t nadeem90/test-imagetage:$new_version"
+					sh "docker build . -t nadeem90/test-imagetage:$new_version"
 
-					 //}	
-              	//}
-			//}
+					 }	
+              	}
+			}
 
 
 			
 			
-	//stage('Docker Login, Docker Push') {
+	stage('Docker Login, Docker Push') {
 
-			//steps {
-				//script{
-				//docker.withRegistry('', 'dockerhub') {		
-					//sh "docker push nadeem90/test-imagetage:'$new_version'"	
-				     // }	
-              	//}
-			//}
-		//}
+			steps {
+				script{
+				docker.withRegistry('', 'dockerhub') {		
+					sh "docker push nadeem90/test-imagetage:'$new_version'"	
+				     }	
+              	}
+			}
+		}
 		
 
          stage('Update Nexus Version File') {
