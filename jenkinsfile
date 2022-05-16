@@ -19,28 +19,22 @@ pipeline{
 	
 		
 	stage('Build') {
-
-			steps {
-				script{
-					
-					sh "docker build . -t nadeem90/test-imagetage:$new_version"
-					echo "${version}"
-					
+		steps {
+			script{
+				sh "docker build . -t nadeem90/test-imagetage:$new_version"
+				echo "${version}"
 					 }	
-              	}
+              			}
 			}
 
 
-			
-			
 	stage('Docker Login, Docker Push') {
-
-			steps {
-				script{
+		steps {
+			script{
 				docker.withRegistry('', 'dockerhub') {		
-					sh "docker push nadeem90/test-imagetage:'$new_version'"	
+				sh "docker push nadeem90/test-imagetage:'$new_version'"	
 				     }	
-              	}
+              			}
 			}
 		}
 		
@@ -49,12 +43,9 @@ pipeline{
 	   	steps{
             	     script {	
 			UpdateNexusFile("${application}","${version}","${new_version}")
-			
             			}
             		}
         	}    			
-	
-	
 	
 	
      }
